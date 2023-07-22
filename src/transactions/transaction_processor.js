@@ -26,10 +26,7 @@ function processTransactions(transActions) {
 }
 
 function sortByAmountThenName(txCount) {
-  const sortedKeys = Object.keys(txCount).sort(function sortingFunction(
-    itemOne,
-    itemTwo
-  ) {
+  const sortedKeys = Object.keys(txCount).sort((itemOne, itemTwo) => {
     return (
       txCount[itemTwo] - txCount[itemOne] ||
       itemOne > itemTwo ||
