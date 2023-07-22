@@ -1,7 +1,5 @@
 // Marlon do arrow function
 function processTransactions(transActions) {
-  const txr = [];
-
   if (!validateTransactions(transActions)) {
     throw new Error("Undefined collection of transactions");
   }
@@ -20,8 +18,8 @@ function processTransactions(transActions) {
   txCount = sortByAmountThenName(txCount);
 
   // Place them back in array for returning - Marlon do
-  Object.keys(txCount).forEach(function (key, index) {
-    txr[index] = `${key} ${txCount[key]}`;
+  const txr = Object.keys(txCount).map((key) => {
+    return `${key} ${txCount[key]}`;
   });
 
   return txr;
