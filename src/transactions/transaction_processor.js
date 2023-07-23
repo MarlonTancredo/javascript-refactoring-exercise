@@ -4,16 +4,11 @@ function processTransactions(transActions) {
     throw new Error("Undefined collection of transactions");
   }
 
-  let txCount = {};
-
-  const numberOfTransactions = transActions.length;
-  // Zanna refactors it
-  for (var i = 0; i < numberOfTransactions; i++) {
-    const transaction = transActions[i];
-    txCount[transaction]
-      ? (txCount[transaction] += 1)
-      : (txCount[transaction] = 1);
-  }
+  // Count occurences of each transaction and store result in the object txCount
+  let txCount = transActions.reduce((itemsCountObj, item) => {
+    itemsCountObj[item] = (itemsCountObj[item] || 0) + 1;
+    return itemsCountObj;
+  }, {});
 
   txCount = sortByAmountThenName(txCount);
 
