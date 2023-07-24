@@ -1,4 +1,3 @@
-// Marlon do arrow function
 function processTransactions(transActions) {
   if (!validateTransactions(transActions)) {
     throw new Error("Undefined collection of transactions");
@@ -37,7 +36,6 @@ function sortByAmountThenName(txCount) {
   return sortedResults;
 }
 
-// Zanna refactors it
 function validateTransactions(transactions) {
   return transactions !== undefined;
 }
