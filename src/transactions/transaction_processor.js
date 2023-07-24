@@ -1,9 +1,9 @@
-function processTransactions(transActions) {
+ export function processTransactions(transActions) {
   if (!validateTransactions(transActions)) {
     throw new Error("Undefined collection of transactions");
   }
 
-  // Count occurences of each transaction and store result in the object txCount
+ 
   let txCount = transActions.reduce((itemsCountObj, item) => {
     itemsCountObj[item] = (itemsCountObj[item] || 0) + 1;
     return itemsCountObj;
@@ -11,12 +11,9 @@ function processTransactions(transActions) {
 
   txCount = sortByAmountThenName(txCount);
 
-  // Place them back in array for returning - Marlon do
-  const txr = Object.keys(txCount).map((key) => {
-    return `${key} ${txCount[key]}`;
-  });
+  const arrayOfTransactions = Object.entries(txCount).map(([key, value]) => `${key} ${value}`);
 
-  return txr;
+  return arrayOfTransactions;
 }
 
 function sortByAmountThenName(txCount) {
@@ -36,8 +33,6 @@ function sortByAmountThenName(txCount) {
   return sortedResults;
 }
 
-function validateTransactions(transactions) {
-  return transactions !== undefined;
-}
+const validateTransactions = (transactions) => transactions !== undefined;
 
-module.exports = processTransactions;
+
