@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/techreturners/javascript-refactoring-exercise#readme",
   "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "babel-jest": "^29.6.1",
     "jest": "^27.2.4"
   }
 }
